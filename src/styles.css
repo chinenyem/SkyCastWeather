@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.sebm-google-map-container {
+    height: 300px;
+}
+
+.container{
+  width: 100%;
+}
+
+.date{
+  font-size: 2em;
+  color: white;
+  margin-left: 7%;
+}
+
+.display-name{
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.display-warning{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15.1px;
+}
+
+.google-maps-heading{
+  padding: 1px 0px;
+}
+
+.google-maps-heading > h4{
+  margin-left: 16px;
+}
+
+.google-maps-body{
+  padding: 4px;
+  background-color: #2aa198;
+}
+
+.tag-item{
+  font-size: 18px;
+  color: white;
+}
+
+.temp{
+  color: white;
+  font-size: 42px;
+  font-weight: 100;
+}
+
+.today-info{
+  margin-top: 22px;
+}
+
+.title-main{
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+.list-group-item .badge{
+  padding: 5px 10px 17px;
+  border-radius: 20px;
+  height: 36px;
+  font-size: 17px;
+  margin-top: -6px;
+  color: #FFEB3B;
+}
+.text-quote{
+  color: white;
+}
+.table-weather-searches{
+  margin-top: 20px;
+  max-height: 421px;
+  overflow: scroll;
+}
+.searchkey:hover{
+  cursor:grab;
+  background-color: #258d85;
+  color:white;
+}
+
+.condition{
+  float: right;
+  color: #ffeb3b;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+/*loader */
+.centered{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.first{ margin:155px auto }
+span .loader{
+  width:10px;
+  height:10px;
+  background: #258d85;
+  border-radius:50%;
+  display:block;
+  margin-left:30px;
+  box-shadow:30px 30px 20px 2px #258d85;
+   -webkit-animation: rotate 10s linear infinite;
+  animation: rotate 10s linear infinite;
+
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotateZ(360deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg)
+  }
+}

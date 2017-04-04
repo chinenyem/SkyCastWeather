@@ -1,0 +1,177 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <!-- Google Maps Search -->
+    <div class="col-md-6 col-lg-6 col-sm-12">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="search">Search by place, or address </label>
+            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-success">
+                <div class="panel-heading google-maps-heading">
+                  <h4 clas="panel-title">Google Maps</h4>
+                </div>
+                <div class="panel-body google-maps-body">
+                  <sebm-google-map
+                    [latitude]="latitude"
+                    [longitude]="longitude"
+                    [scrollwheel]="false"
+                    [zoom]="zoom"
+                    [streetViewControl]="true">
+                    <sebm-google-map-marker
+                      [latitude]="latitude"
+                      [longitude]="longitude">
+
+                      <sebm-google-map-info-window>
+                        <strong>InfoWindow content</strong>
+                      </sebm-google-map-info-window>
+
+                  </sebm-google-map-marker>
+                  <sebm-google-map-circle
+                     [latitude]="latitude + 0.3"
+                     [longitude]="longitude"
+                     [radius]="5000"
+                     [fillColor]="'red'"
+                     [circleDraggable]="true"
+                     [editable]="true">
+                 </sebm-google-map-circle>
+                  </sebm-google-map>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Current Weather -->
+    <div class="col-md-6 col-lg-6 col-sm-12 today-info">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12">
+              <h5 class="title-main">Today for <br> {{place}}</h5>
+              <ul class="list-group">
+                <li class="list-group-item temp">
+                    <span class="int">{{today_current_temp}}</span>
+                    <span>&#176;</span>
+                    <img src="{{today_current_condition_icon}}">
+                  </li>
+                <li class="list-group-item tag-item">Feels Like:
+                    <span class="badge">
+                        <span class="int">{{today_feels_like}}</span>
+                        <span>&#176;</span>
+                    </span>
+                </li>
+                <li class="list-group-item tag-item">Clouds:
+                    <span class="badge">
+                        <span class="int">{{today_cloud}}</span>
+                        <span>&#176;</span>
+                  </span></li>
+                <li class="list-group-item tag-item">Condition:
+                    <span class="condition">{{today_current_text}}</span>
+                    <span >&#176;</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <h5 class="title-main">Right Now</h5>
+              <ul class="list-group">
+                <li class="list-group-item tag-item">Wind(mph) {{today_current_wind_direction}}:<span class="badge"><span class="int">{{today_current_wind_degree}} </span></span></li>
+                <li class="list-group-item tag-item">Humidity: <span class="badge"><span class="int" >{{today_current_humidity}}</span>%</span></li>
+                <li class="list-group-item tag-item">Dew Point: <span class="badge"><span class="int">{{today_current_precipitation_in}}</span><span>&#176;</span></span></li>
+                <li class="list-group-item tag-item">Pressure: <span class="badge"><span class="int" >{{today_current_pressure_in}}</span></span></li>
+                <li class="list-group-item tag-item">Visibility(m): <span class="badge"><span class="int">{{today_current_visibility}}</span> </span></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Quote of the day -->
+          <div class="col-md-12">
+            <h4>Quote of the day</h4>
+            <h5 class="text-quote">{{quote_of_the_day}} &#822; <br> by {{author}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 4 day forecast -->
+    <div class="col-md-12">
+      <h5 class="title-main">4 Days Forecast</h5>
+      <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3" *ngFor="let forecast of forecastdays">
+                  <ul class="list-group">
+                    <h4 class="title-main text-center">{{forecast.date | amDateFormat:'LL'}}</h4>
+
+                    <li class="list-group-item temp">
+                        <span class="int">{{forecast.day.maxtemp_f}}</span>
+                        <span>&#176; &#47;</span>
+                        <span class="int">{{forecast.day.mintemp_f}}</span>
+                        <span>&#176;</span>
+                        <br>
+                        <img src="{{forecast.day.condition.icon}}">
+                      </li>
+                    <li class="list-group-item tag-item">Condition:
+                        <span class="condition">{{forecast.day.condition.text}}</span>
+                    </li>
+                    <li class="list-group-item tag-item">Max Winds (mph):
+                        <span class="badge">
+                            <span class="int">{{forecast.day.maxwind_mph}}</span>
+                      </span></li>
+                    <li class="list-group-item tag-item">Avg Humidity:
+                      <span class="badge">
+                        <span class="int">{{forecast.day.avghumidity}}</span>
+                        <span >%</span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historic Data for Yesterday-->
+    <div class="col-md-12">
+      <h5 class="title-main">Historic Data for Yesterday ({{yesterday | date:'longDate'}})</h5>
+        <div class="row">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="col-md-12">
+                  <chart [options]="tempDewpoint"></chart>
+                </div>
+              </div>
+          </div>
+
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="col-md-12">
+                  <chart [options]="windSpeed"></chart>
+                </div>
+              </div>
+          </div>
+
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="col-md-12">
+                  <chart [options]="precipTotal"></chart>
+                </div>
+              </div>
+          </div>
+
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="col-md-12">
+                  <chart [options]="pressureTotal"></chart>
+                </div>
+              </div>
+          </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  </div>

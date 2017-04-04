@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default  ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SkyCast</a>
+        </div>
+        <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+          <ul class="nav navbar-nav navbar-left col-md-4">
+            <li><a [routerLink]="['/']">Dashboard</a></li>
+            <!-- <li *ngIf="(af.auth | async)"><a [routerLink]="['/weatherlistings']">Weather Listings</a></li>
+            <li *ngIf="(af.auth | async)"><a [routerLink]="['/add-weather-listing']">Add Listings</a></li> -->
+            <li *ngIf="(af.auth | async)"><a [routerLink]="['/weather-lookups']">Past Weather Lookups</a></li>
+            <li class="display-warning text-warning" *ngIf="!(af.auth | async)">Log in to save your weather searches.</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-center col-md-4 date">
+              <li>{{ todays_date | amDateFormat:'LL'}}</li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right ">
+            <li class="display-name" *ngIf="(af.auth | async)">Hi {{displayName}} !</li>
+            <li *ngIf="!(af.auth | async)"><a (click)="login()">Log In</a></li>
+            <li *ngIf="(af.auth | async)"><a (click)="logout()">Log Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
