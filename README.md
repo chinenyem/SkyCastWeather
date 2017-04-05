@@ -13,6 +13,7 @@ weather charts), bootstrap, google api(autocomplete search), apixu api(weather i
 AngularJS2
 
 # Testing
+Angular Testing Module
 
 # Resource Compiling
 AngularCli ng-build
