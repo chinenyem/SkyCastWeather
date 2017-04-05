@@ -1,4 +1,4 @@
-# SkyCastWeather (Made with AngularJS2, Firebase, Highcharts, Bootstrap)
+# SkyCastWeather (Made with AngluarCli, AngularJS2, Firebase, Highcharts, Bootstrap)
 View the app here https://skycast-e9d0e.firebaseapp.com/
 
 
@@ -7,10 +7,18 @@ This is a small SkyCast project for a viewing weather information. This is a sta
 The design is a modern dark design with vibrant charts, images, and serif font.
 
 The web application is made with angluarjs2(javascript framework), firebase(database, hosting, and authentication), highcharts(historic
-weather charts), bootstrap, google api(autocomplete search), apixu api(weather information), angulartesting, angularCli(compiling files for production)
+weather charts), bootstrap, google api(autocomplete search), apixu api(weather information), angulartesting, angularCli(compiling files for production).
+
+# Javascript Framework
+AngularJS2
+
+# Testing
+
+# Resource Compiling
+AngularCli ng-build
 
 
-
+I did not use DarkSky api because it required I needed SSL cert to make calls to its api. I don't have one using my localhost. I decided to venture out and find another weeather api!
 
 
 
