@@ -2,7 +2,7 @@
 View the app here https://skycast-e9d0e.firebaseapp.com/
 
 
-This is a small SkyCast project for a viewing weather information. This is a stable base to iterate weather data information from. Leverging the Google API and APIXU weather api users are able to pick a place, view that specifc place current weather, next 4 days of weather and yesterdays' weather(historic data). If logged, each searched place is saved in the database. The user can choose which place they searched in the past and view information about it. Also a qoute api is used to give quote of the day inspirations to the user. 
+This is a small SkyCast project for a viewing weather information. This is a stable base to iterate weather data information from. Leverging the Google API and APIXU weather api users are able to pick a place, view that specifc place current weather, next 4 days of weather and yesterdays' weather(historic data). User can log in with google authentication, using their gmail account. If logged, each searched place is saved in the database. The user can choose which place they searched in the past and view information about it. Also a qoute api is used to give quote of the day inspirations to the user. 
 
 The design is a modern dark design with vibrant charts, images, and serif font.
 
