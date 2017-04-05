@@ -1,4 +1,6 @@
-declare var require: any
+
+
+import * as highcharts from 'highcharts';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,10 +12,12 @@ import { DarkskyService } from './service/darksky.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AgmCoreModule, MapsAPILoader } from "angular2-google-maps/core";
 import { MomentModule } from 'angular2-moment';
-import { ChartModule } from 'angular2-highcharts';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ChartModule  } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
-import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
 
 export const firebaseConfig = {
@@ -24,7 +28,9 @@ export const firebaseConfig = {
   messagingSenderId: "524115308072"
 };
 
-const firebaseAuthConfig = {
+
+
+export const firebaseAuthConfig = {
   provider: AuthProviders.Google,
   method: AuthMethods.Popup
 };
@@ -36,7 +42,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { WeatherLookupsComponent } from './component/weather-lookups/weather-lookups.component';
 
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'weather-lookups', component:WeatherLookupsComponent}
 ]
@@ -55,10 +61,8 @@ const appRoutes: Routes = [
     }),
     BrowserModule,
     FormsModule,
-    Ng2SearchPipeModule,
-    Ng2FilterPipeModule,
     MomentModule,
-    ChartModule.forRoot(require('highcharts')),
+    ChartModule,
     HttpModule,
     JsonpModule,
     ReactiveFormsModule,
@@ -66,7 +70,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  providers: [FirebaseService, DarkskyService],
+  providers: [FirebaseService, DarkskyService,
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

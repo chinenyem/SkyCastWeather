@@ -8,7 +8,7 @@
           <h4 clas="panel-title">Your Saved Weather Searches <small><span class="text-info">(Click on place to view weather information.)</span></small></h4>
         </div>
         <div class="panel-body">
-          
+
 
           <table class="table table-striped table-hover ">
             <thead>
@@ -21,7 +21,7 @@
             </thead>
             <tbody>
               <tr
-                *ngFor="let weatherLookup of weatherLookups | filter:userFilter; let i = index ;"
+                *ngFor="let weatherLookup of weatherLookups  let i = index ;"
                 (click)="lookupWeather(weatherLookup.latitude,weatherLookup.longitude, weatherLookup.place)"
                 class="searchkey">
                 <td>{{i + 1}}</td>

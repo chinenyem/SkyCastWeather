@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DarkskyService {
   //create key string
-  key:string
+  key:string;
 
   //utilize http method
   constructor(
@@ -24,7 +24,7 @@ export class DarkskyService {
   // make a get request to quote api
   //maps out results and from the response gives json
   getQuoteOfTheDay(){
-    let url = 'http://www.quotzzy.co/api/quote';
+    let url = 'https://www.quotzzy.co/api/quote';
     return this.http.get(url).map((res:Response) => res.json());
   }
 

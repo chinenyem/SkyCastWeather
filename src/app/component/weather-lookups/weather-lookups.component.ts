@@ -61,7 +61,7 @@ export class WeatherLookupsComponent implements OnInit {
     this.today_cloud = 4;
     this.today_current_temp = 70;
     this.today_feels_like = 70;
-    this.today_current_condition_icon = 'http://cdn.apixu.com/weather/64x64/day/116.png';
+    this.today_current_condition_icon = 'https://cdn.apixu.com/weather/64x64/day/116.png';
     this.today_current_text = 'Partly Cloudy';
     this.today_current_humidity = 33;
     this.today_current_visibility = 10;
